@@ -18,11 +18,10 @@ where Orders.order_id=1;
 -- cau2
 select sum(Products.price) where  Orders.order_id=1;
 -- cau3
-select count(order_id),category_name
-from Categories
-group by category_name;
-select* from OrderDetails
-where order_id=0;
+select count(order_id),order_date
+from Orders 
+group by order_date
+having count(order_id)=0;
 -- cau4
 select count(category_id),category_name
 from Categories
@@ -32,7 +31,10 @@ select count(customer_id),customer_name
 from Customers
 group by customer_name;
 -- cau6
-select max(quantity) from OrderDetails;
+select max(category_id), category_name
+from Categories
+group by category_name
+;
 -- cau7
 select count(category_id),category_name
 from Categories
